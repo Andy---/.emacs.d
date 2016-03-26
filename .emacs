@@ -214,7 +214,9 @@ auto-mode-alist (append (list '("\\.c$" . c-mode)
 			      '("\\.html$" . html-mode)
                               '("\\.emacs" . emacs-lisp-mode)
 	                )
-		      auto-mode-alist)
+			auto-mode-alist)
+(setq ess-history-file nil)
+(setq inferior-R-program-name "/usr/bin/R")
 ; comment out the following if you are not using R/S-Plus on ACPUB
 ; add a ";" in front of each line 
 ;(load "/usr/pkg/ess/lisp/ess-site")
@@ -225,7 +227,33 @@ auto-mode-alist (append (list '("\\.c$" . c-mode)
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
+ 
+;;smex
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+
+;;Soundklaus
+;;(require 'emms-setup)
+;;(emms-standard)
+;;(emms-default-players)
+;;(require 'emms-player-vlc)
+;;(define-emms-simple-player vlc '(file url)
+;;  (concat "\\`\\(https?\\|mms\\)://\\|"
+;;      (emms-player-simple-regexp
+;;       "ogg" "mp3" "wav" "mpg" "mpeg" "wmv" "wma"
+;;       "mov" "avi" "divx" "ogm" "ogv" "asf" "mkv"
+;;       "rm" "rmvb" "mp4" "flac" "vob" "m4a" "ape")
+;;      "vlc" "--intf=rc"))
+
+;;(ido-vertical-mode)
+
+(scroll-bar-mode -1)
+
+(load-theme #'abyss t)
+
+;;(load-theme 'pastels-on-dark t)
+
+'(ansi-color-names-vector
    ["#000000" "#d01A4E" "#7E7D7E" "#b58900" "#268bd2" "#d33682" "#2aa198" "#DCDCCC"])
  '(background-color "#202020")
  '(background-mode dark)
@@ -280,27 +308,3 @@ auto-mode-alist (append (list '("\\.c$" . c-mode)
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-;;smex
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-
-;;Soundklaus
-;;(require 'emms-setup)
-;;(emms-standard)
-;;(emms-default-players)
-;;(require 'emms-player-vlc)
-;;(define-emms-simple-player vlc '(file url)
-;;  (concat "\\`\\(https?\\|mms\\)://\\|"
-;;      (emms-player-simple-regexp
-;;       "ogg" "mp3" "wav" "mpg" "mpeg" "wmv" "wma"
-;;       "mov" "avi" "divx" "ogm" "ogv" "asf" "mkv"
-;;       "rm" "rmvb" "mp4" "flac" "vob" "m4a" "ape")
-;;      "vlc" "--intf=rc"))
-
-;;(ido-vertical-mode)
-
-(scroll-bar-mode -1)
-
-(load-theme #'abyss t)
-
-;;(load-theme 'pastels-on-dark t)
