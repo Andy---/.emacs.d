@@ -260,7 +260,11 @@
   (setq magit-unstage-all-confirm nil)
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 
-;;(ido-vertical-mode)
+(use-package ido-vertical-mode
+  :ensure t
+  :init
+  (ido-vertical-mode)
+  (setq ido-vertical-define-keys 'C-n-and-C-p-only))
 
 (scroll-bar-mode -1)
 
