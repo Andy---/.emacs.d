@@ -260,19 +260,6 @@
   (setq magit-unstage-all-confirm nil)
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 
-;;Soundklaus
-;;(require 'emms-setup)
-;;(emms-standard)
-;;(emms-default-players)
-;;(require 'emms-player-vlc)
-;;(define-emms-simple-player vlc '(file url)
-;;  (concat "\\`\\(https?\\|mms\\)://\\|"
-;;      (emms-player-simple-regexp
-;;       "ogg" "mp3" "wav" "mpg" "mpeg" "wmv" "wma"
-;;       "mov" "avi" "divx" "ogm" "ogv" "asf" "mkv"
-;;       "rm" "rmvb" "mp4" "flac" "vob" "m4a" "ape")
-;;      "vlc" "--intf=rc"))
-
 ;;(ido-vertical-mode)
 
 (scroll-bar-mode -1)
@@ -282,5 +269,16 @@
   :init
   (load-theme #'abyss t))
 
+;;Soundklaus
+(use-package soundklaus
+  :ensure t
+  :commands
+  (soundklaus-activities
+   soundklaus-connect
+   soundklaus-my-favorites
+   soundklaus-my-playlists
+   soundklaus-my-tracks
+   soundklaus-playlists
+   soundklaus-tracks))
 
 	  
