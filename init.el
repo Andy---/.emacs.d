@@ -66,6 +66,10 @@
  "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
 
 ;;(require 'ein)
+(use-package ein
+  :ensure t
+  :commands (ein:notebooklist-open))
+
 ;;Elpy
 (use-package elpy
   :ensure t
