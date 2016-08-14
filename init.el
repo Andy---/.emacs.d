@@ -33,38 +33,6 @@
 ;;(setq inferior-octave-prompt ">> ")
 
 ;;python
-(use-package python-mode
-  :ensure t)
-
-(autoload 'python-mode "python-mode" "Python Mode." t)
-(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-(add-to-list 'interpreter-mode-alist '("python" . python-mode))
-(setq py-python-command "python3")
-;;(setq py-shell-name "/usr/bin/python2")
-;; Standard Jedi.el setting
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
-; use IPython
-(setq-default py-shell-name "ipython")
-(setq-default py-which-bufname "IPython")
-; use the wx backend, for both mayavi and matplotlib
-;;(setq py-python-command-args
-;;  '("--gui=wx" "--pylab=wx" "-colors" "Linux"))
-(setq py-force-py-shell-name-p t)
-
-;;(require 'ipython)
-(setq
- python-shell-interpreter "ipython"
- python-shell-interpreter-args "--simple-prompt"
- python-shell-prompt-regexp "In \\[[0-9]+\\]: "
- python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
- python-shell-completion-setup-code
-   "from IPython.core.completerlib import module_completion"
- python-shell-completion-module-string-code
-   "';'.join(module_completion('''%s'''))\n"
- python-shell-completion-string-code
- "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
-
 ;;(require 'ein)
 (use-package ein
   :ensure t
