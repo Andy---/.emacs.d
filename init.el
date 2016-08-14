@@ -66,6 +66,15 @@
  "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
 
 ;;(require 'ein)
+;;Elpy
+(use-package elpy
+  :ensure t
+   :init
+   (setq py-python-command "python3")
+   (with-eval-after-load 'python
+     ;;(delete 'elpy-module-highlight-indentation elpy-modules)
+     (elpy-enable)
+     (elpy-use-ipython)))
 
 ;;Auctex
 ;;(use-package auctex
