@@ -1,5 +1,9 @@
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+(setq package-archives
+      '(("elpa" . "http://tromey.com/elpa/")
+        ("melpa" . "http://melpa.org/packages/")
+        ("melpa-stable" . "http://stable.melpa.org/packages/")
+        ("gnu" . "http://elpa.gnu.org/packages/")))
+
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
