@@ -313,6 +313,7 @@ new one."
 (use-package abyss-theme
   :ensure t)
 
+;;detecting if emacs is in terminal- or gui-mode and selecting color-theme accordingly (s.http://emacs.stackexchange.com/questions/7151/is-there-a-way-to-detect-that-emacs-is-running-in-a-terminal)
 (if (display-graphic-p)
     (load-theme 'abyss)
   (load-theme 'spacemacs-dark))
