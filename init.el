@@ -10,6 +10,8 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(require 'use-package)
+
 (add-to-list 'custom-theme-load-path "/home/andy/.emacs.d/elpa")
 (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
 (load custom-file)
@@ -305,10 +307,15 @@ new one."
 
 (scroll-bar-mode -1)
 
+(use-package spacemacs-theme
+  :ensure t)
+  
 (use-package abyss-theme
-  :ensure t
-  :init
-  (load-theme #'abyss t))
+  :ensure t)
+
+(if (display-graphic-p)
+    (load-theme 'abyss)
+  (load-theme 'spacemacs-dark))
 
 ;;Soundklaus
 (use-package soundklaus
