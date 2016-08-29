@@ -21,6 +21,12 @@
   (when (file-exists-p file)
     (load file)))
 
+;;SQL
+(setq sql-indent-offset 2)
+;;Load database connection settings
+(eval-after-load "sql"
+    '(load-if-exists "/home/andi/.sql.el"))
+
 ;;octave mode
 ;;(autoload 'run-octave "octave-inf" nil t)
 ;;(autoload 'octave-mode "octave-mod" nil t)
