@@ -60,10 +60,12 @@
   :ensure t
    :init
    (setq py-python-command "python3")
+   (setq python-shell-interpreter "ipython"
+	 python-shell-interpreter-args "-i --simple-prompt")
    (with-eval-after-load 'python
      ;;(delete 'elpy-module-highlight-indentation elpy-modules)
-     (elpy-enable)
-     (elpy-use-ipython)))
+     (elpy-enable)))
+     ;;(elpy-use-ipython)))
 
 ;;Auctex
 ;;(use-package auctex
@@ -262,6 +264,74 @@ new one."
 (use-package ess
   :ensure t)
 
+;;web-development
+(use-package web-mode
+  :ensure t
+  :config
+  (setq tab-width 2)
+  (setq web-mode-enable-current-column-highlight 1)
+  (setq web-mode-enable-current-element-highlight 1)
+  :mode ("\\.html?\\'"
+	 "\\.css\\'"
+         "\\.phtml\\'"
+         "\\.php\\'"
+         "\\.inc\\'"
+         "\\.tpl\\'"
+         "\\.jsp\\'"
+	 "\\.js\\'"
+         "\\.as[cp]x\\'"
+         "\\.erb\\'"
+         "\\.mustache\\'"
+         "\\.djhtml\\'"
+         "\\.jsx\\'"
+         "\\.tsx\\'"))
+
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (set (make-local-variable 'company-backends) '(company-css company-web-html company-yasnippet company-files))
+  )
+
+(add-hook 'web-mode-hook 'my-web-mode-hook)
+  
+;;emmet
+(use-package emmet-mode
+  :ensure t
+  :hook
+  (web-mode)
+  :init
+  (add-hook 'web-mode-before-auto-complete-hooks
+    '(lambda ()
+     (let ((web-mode-cur-language
+  	    (web-mode-language-at-pos)))
+               (if (string= web-mode-cur-language "php")
+    	   (yas-activate-extra-mode 'php-mode)
+      	 (yas-deactivate-extra-mode 'php-mode))
+               (if (string= web-mode-cur-language "css")
+    	   (setq emmet-use-css-transform t)
+      	 (setq emmet-use-css-transform nil)))))
+)
+
+;;yasnippet
+(use-package yasnippet
+  :ensure t
+  :defer t
+  :hook
+  (web-mode . yas-minor-mode))
+
+;;company
+(use-package company
+  :ensure t
+  :config
+  (add-hook 'after-init-hook 'global-company-mode))
+
+;;company-web
+(use-package company-web
+  :ensure t
+  :defer t)
+
 (eval-after-load "comint"
   '(progn
      (define-key comint-mode-map [up]
@@ -309,7 +379,7 @@ new one."
   (setq magit-stage-all-confirm nil)
   (setq magit-unstage-all-confirm nil)
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
-
+ 
 (use-package ido-vertical-mode
   :ensure t
   :init
@@ -318,8 +388,8 @@ new one."
 
 (scroll-bar-mode -1)
 
-(use-package spacemacs-theme
-  :ensure t)
+;;(use-package spacemacs-theme
+;;  :ensure t)
   
 (use-package abyss-theme
   :ensure t)
