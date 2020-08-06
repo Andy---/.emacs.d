@@ -58,14 +58,16 @@
 ;;Elpy
 (use-package elpy
   :ensure t
-   :init
-   (setq py-python-command "python3")
-   (setq python-shell-interpreter "ipython"
-	 python-shell-interpreter-args "-i --simple-prompt")
-   (with-eval-after-load 'python
-     ;;(delete 'elpy-module-highlight-indentation elpy-modules)
-     (elpy-enable)))
-     ;;(elpy-use-ipython)))
+  :init
+  (setq py-python-command "python3")
+  (setq elpy-test-runner 'elpy-test-pytest-runner)
+	;;elpy-test-pytest-runner-command '("python" "-m" "pytest"))
+  (setq python-shell-interpreter "ipython"
+	python-shell-interpreter-args "-i --simple-prompt")
+  (with-eval-after-load 'python
+    ;;(delete 'elpy-module-highlight-indentation elpy-modules)
+    (elpy-enable)))
+;;(elpy-use-ipython)))
 
 ;;Auctex
 ;;(use-package auctex
@@ -331,6 +333,12 @@ new one."
 (use-package company-web
   :ensure t
   :defer t)
+
+;;hideshow
+(use-package hideshow
+  :ensure t
+  :hook
+  (python-mode . hs-minor-mode))
 
 (eval-after-load "comint"
   '(progn
