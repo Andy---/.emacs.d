@@ -279,7 +279,6 @@ new one."
          "\\.inc\\'"
          "\\.tpl\\'"
          "\\.jsp\\'"
-	 "\\.js\\'"
          "\\.as[cp]x\\'"
          "\\.erb\\'"
          "\\.mustache\\'"
@@ -296,7 +295,19 @@ new one."
   )
 
 (add-hook 'web-mode-hook 'my-web-mode-hook)
-  
+
+;;javascript
+(use-package js2-mode
+  :ensure t
+  :mode
+  (("\\.js\\'" . js2-mode))
+  :custom
+  (js2r-prefer-let-over-var t)
+  (js-indent-align-list-continuation t)
+  :config
+  (setq js2-indent-level 2)
+  (setq js2-strict-missing-semi-warning nil))
+
 ;;emmet
 (use-package emmet-mode
   :ensure t
@@ -337,7 +348,11 @@ new one."
 (use-package hideshow
   :ensure t
   :hook
-  (python-mode . hs-minor-mode))
+  (python-mode . hs-minor-mode)
+  :config
+  (setq hs-isearch-open 'code)
+  )
+
 
 (eval-after-load "comint"
   '(progn
@@ -417,5 +432,3 @@ new one."
    soundklaus-my-tracks
    soundklaus-playlists
    soundklaus-tracks))
-
-	  
