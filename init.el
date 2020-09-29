@@ -1,6 +1,5 @@
 (setq package-archives
-      '(("elpa" . "http://tromey.com/elpa/")
-        ("melpa" . "http://melpa.org/packages/")
+      '(("melpa" . "http://melpa.org/packages/")
         ("melpa-stable" . "http://stable.melpa.org/packages/")
         ("gnu" . "http://elpa.gnu.org/packages/")))
 
