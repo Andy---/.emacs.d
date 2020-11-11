@@ -20,6 +20,13 @@
   (when (file-exists-p file)
     (load file)))
 
+;;org-mode
+(use-package org
+  :ensure t
+  :config
+  (global-set-key "\C-ca" 'org-agenda)
+  (setq org-hide-emphasis-markers t))
+
 ;;SQL
 (setq sql-indent-offset 2)
 ;;Load database connection settings
