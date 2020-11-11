@@ -300,13 +300,13 @@ new one."
 (use-package js2-mode
   :ensure t
   :mode
-  (("\\.js\\'" . js2-mode))
+  ("\\.js\\'" . js2-mode)
+  :config
+  (setq js2-indent-level 2
+	js2-strict-missing-semi-warning nil)
   :custom
   (js2r-prefer-let-over-var t)
-  (js-indent-align-list-continuation t)
-  :config
-  (setq js2-indent-level 2)
-  (setq js2-strict-missing-semi-warning nil))
+  (js-indent-align-list-continuation t))
 
 ;;emmet
 (use-package emmet-mode
