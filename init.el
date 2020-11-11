@@ -27,6 +27,19 @@
   (global-set-key "\C-ca" 'org-agenda)
   (setq org-hide-emphasis-markers t))
 
+(defun org-focus-private() "Set focus on private things."
+       (interactive)
+       (setq org-agenda-files '("~/Orgy/me.org")))
+(defun org-focus-work() "Set focus on work things."
+       (interactive)
+       (setq org-agenda-files '("~/Orgy/limo.org")))
+(defun org-focus-all() "Set focus on all things."
+       (interactive)
+       (setq org-agenda-files '("~/Orgy/limo.org"
+				"~/Orgy/me.org")))
+
+(org-focus-all)
+
 ;;SQL
 (setq sql-indent-offset 2)
 ;;Load database connection settings
