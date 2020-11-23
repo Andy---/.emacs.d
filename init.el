@@ -206,6 +206,12 @@
                           ("M-d" . term-send-forward-kill-word)))
                 (add-to-list 'term-bind-key-alist bind)))))
 
+;;auto-dim-other-buffers
+(use-package auto-dim-other-buffers
+  :ensure t
+  :init
+  (auto-dim-other-buffers-mode))
+
 ;;Returns the most recently used term-mode buffer.
 (defun last-term-mode-buffer (list-of-buffers)
   "Returns the most recently used term-mode buffer."
@@ -214,7 +220,6 @@
         (car list-of-buffers) (last-term-mode-buffer (cdr list-of-buffers)))))
 
 ;;Switch to the most recently used term-mode buffer, or create a new one.
-
 (defun switch-to-term-mode-buffer ()
   "Switch to the most recently used term-mode buffer, or create a
 new one."
