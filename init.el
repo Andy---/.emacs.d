@@ -10,6 +10,7 @@
   (package-install 'use-package))
 
 (require 'use-package)
+(setq use-package-always-ensure t) ;:ensure t for all use-packages
 
 (add-to-list 'custom-theme-load-path "/home/andy/.emacs.d/elpa")
 (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
@@ -19,6 +20,10 @@
   "Load `file` if it exists."
   (when (file-exists-p file)
     (load file)))
+
+;;rainbow-delimiter
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 ;;org-mode
 (use-package org
