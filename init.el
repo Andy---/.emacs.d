@@ -171,7 +171,14 @@
 ;;ivy
 (use-package ivy
   ;;:diminish
-  :init (ivy-mode))
+  :init (ivy-mode)
+  :bind
+  ("C-s" . swiper)
+  :config
+  (setq ivy-wrap t)
+  (setq ivy-use-virtual-buffers t)
+  (setf (alist-get 'swiper ivy-height-alist) 10)
+  (setf (alist-get 'ivy-switch-buffer ivy-height-alist) 7))
 
 ;;ivy-rich
 (use-package ivy-rich
