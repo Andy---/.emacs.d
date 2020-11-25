@@ -21,6 +21,11 @@
   (when (file-exists-p file)
     (load file)))
 
+(scroll-bar-mode -1)
+
+;; Ask user a "y or n" question.
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 ;;rainbow-delimiter
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -162,9 +167,6 @@
 (fset 'mathrm
    "\\mathrm{}\C-b")
 (global-set-key (kbd "C-c j") 'mathrm)
-
-;; Ask user a "y or n" question.
-(defalias 'yes-or-no-p 'y-or-n-p)
 
 ;;ivy
 (use-package ivy
@@ -453,7 +455,6 @@ new one."
   (setq magit-stage-all-confirm nil)
   (setq magit-unstage-all-confirm nil)
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
-(scroll-bar-mode -1)
 
 ;;(use-package spacemacs-theme
 ;;  :ensure t)
