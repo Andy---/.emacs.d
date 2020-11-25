@@ -166,16 +166,45 @@
 ;; Ask user a "y or n" question.
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;; IDO-MODE
-(ido-mode t)
-(setq ido-auto-merge-work-directories-length nil
-      ido-create-new-buffer 'always
-      ido-enable-flex-matching t
-      ido-enable-prefix nil
-      ido-handle-duplicate-virtual-buffers 2
-      ido-max-prospects 10
-      ido-use-filename-at-point 'guess
-      ido-use-virtual-buffers t)
+;;ivy
+(use-package ivy
+  ;;:diminish
+  :init (ivy-mode))
+
+;;ivy-rich
+(use-package ivy-rich
+  :init (ivy-rich-mode))
+
+;;counsel
+(use-package counsel
+  :config (counsel-mode)
+  :bind
+  (:map minibuffer-local-map
+	("C-r" . 'counsel-minibuffer-history)))
+
+;; ;; IDO-MODE
+;; (ido-mode t)
+;; (setq ido-auto-merge-work-directories-length nil
+;;       ido-create-new-buffer 'always
+;;       ido-enable-flex-matching t
+;;       ido-enable-prefix nil
+;;       ido-handle-duplicate-virtual-buffers 2
+;;       ido-max-prospects 10
+;;       ido-use-filename-at-point 'guess
+;;       ido-use-virtual-buffers t)
+
+;; ;;smex
+;; (use-package smex
+;;   :ensure t)
+
+;; (global-set-key (kbd "M-x") 'smex)
+;; (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+
+;; (use-package ido-vertical-mode
+;;   :ensure t
+;;   :init
+;;   (ido-vertical-mode)
+;;   (setq ido-vertical-define-keys 'C-n-and-C-p-only))
 
 ;;multi-term
 (use-package multi-term
@@ -415,13 +444,6 @@ new one."
 ;(setq-default inferior-S+6-program-name "Splus")
 ;(setq-default inferior-R-program-name "R")
  
- ;;smex
-(use-package smex
-  :ensure t)
-
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-
 ;;Magit
 (use-package magit
   :ensure t
@@ -431,13 +453,6 @@ new one."
   (setq magit-stage-all-confirm nil)
   (setq magit-unstage-all-confirm nil)
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
- 
-(use-package ido-vertical-mode
-  :ensure t
-  :init
-  (ido-vertical-mode)
-  (setq ido-vertical-define-keys 'C-n-and-C-p-only))
-
 (scroll-bar-mode -1)
 
 ;;(use-package spacemacs-theme
