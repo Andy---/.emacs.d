@@ -36,6 +36,13 @@
   :config
   (global-set-key "\C-ca" 'org-agenda)
   (setq org-hide-emphasis-markers t))
+;;org-bullets
+(use-package org-bullets
+  :after org
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+
 
 (defun org-focus-private() "Set focus on private things."
        (interactive)
