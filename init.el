@@ -43,6 +43,13 @@
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
+;;control size of headings
+(dolist (face '((org-level-1 . 1.2)
+		(org-level-2 . 1.15)
+		(org-level-3 . 1.05)
+		(org-level-4 . 1.0)
+		(org-level-5 . 1.0)))
+  (set-face-attribute (car face) nil :weight 'regular :height (cdr face)))
 
 (defun org-focus-private() "Set focus on private things."
        (interactive)
