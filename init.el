@@ -36,7 +36,9 @@
   :ensure t
   :config
   (global-set-key "\C-ca" 'org-agenda)
-  (setq org-hide-emphasis-markers t))
+  (setq org-hide-emphasis-markers t
+	org-ellipsis " ▾"))
+
 ;;org-bullets
 (use-package org-bullets
   :after org
