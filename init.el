@@ -35,9 +35,16 @@
 (use-package org
   :ensure t
   :config
-  (global-set-key "\C-ca" 'org-agenda)
-  (setq org-hide-emphasis-markers t
-	org-ellipsis " ▾"))
+  (setq org-hide-emphasis-markers t)
+  (setq	org-ellipsis " ▾")
+  (setq org-log-done 'time)
+  (setq org-refile-targets
+	'(("archive.org" :maxlevel . 1)))
+  ;; Save org buffers after refiling
+  (advice-add 'org-refile :after 'org-save-all-org-buffers)
+  (setq org-archive-location "%s_archive::")
+  :bind
+  ("C-c a" . 'org-agenda))
 
 ;;org-bullets
 (use-package org-bullets
