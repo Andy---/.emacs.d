@@ -74,6 +74,11 @@
 
 (org-focus-all)
 
+(org-babel-do-load-languages
+    'org-babel-load-languages
+    '((emacs-lisp . t)
+      (python . t)))
+
 ;;SQL
 (setq sql-indent-offset 2)
 ;;Load database connection settings
