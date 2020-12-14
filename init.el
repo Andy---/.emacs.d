@@ -78,7 +78,7 @@
 (setq sql-indent-offset 2)
 ;;Load database connection settings
 (eval-after-load "sql"
-    '(load-if-exists "/home/andi/.sql.el"))
+    '(load-if-exists "~/.sql.el"))
 
 ;;octave mode
 ;;(autoload 'run-octave "octave-inf" nil t)
