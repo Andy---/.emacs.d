@@ -75,11 +75,22 @@
 
 (org-focus-all)
 
+(org-babel-do-load-languages
+    'org-babel-load-languages
+    '((emacs-lisp . t)
+      (python . t)))
+
+(require 'org-tempo)
+
+(add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+(add-to-list 'org-structure-template-alist '("py" . "src python"))
+
 ;;SQL
 (setq sql-indent-offset 2)
 ;;Load database connection settings
 (eval-after-load "sql"
-    '(load-if-exists "/home/andi/.sql.el"))
+    '(load-if-exists "~/.sql.el"))
 
 ;;octave mode
 ;;(autoload 'run-octave "octave-inf" nil t)
@@ -520,3 +531,6 @@ new one."
    soundklaus-my-tracks
    soundklaus-playlists
    soundklaus-tracks))
+(fset 'insert_python_docstring
+   (kmacro-lambda-form [?\' ?\' ?\' ?\C-m ?\C-i ?\C-u ?1 ?3 ?- ?\C-m ?\C-i ?A ?r ?g ?u ?m ?e ?n ?t ?s ?: ?\C-m ?\C-i ?\C-u ?1 ?3 ?- ?\C-m ?\C-m ?\C-i ?\C-u ?1 ?3 ?- ?\C-m ?\C-i ?R ?e ?t ?u ?r ?n ?s ?: ?\C-m ?\C-i ?\C-u ?1 ?3 ?- ?\C-m ?\C-m ?\C-i ?\' ?\' ?\' ?\C-p ?\C-p ?\C-p ?\C-p ?\C-p ?\C-p ?\C-p ?\C-p ?\C-p ?\C-m ?\C-i] 0 "%d"))
+(global-set-key (kbd "C-c (") 'insert_python_docstring)

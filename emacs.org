@@ -1,0 +1,25 @@
+#+title: Initialize emacs
+#+PROPERTY: header-args:emacs-lisp :tangle ./init_new.el :mkdirp yes
+
+* org-mode
+
+** config
+
+#+begin_src emacs-lisp
+(use-package org
+  :ensure t
+  :config
+  (setq org-hide-emphasis-markers t)
+  (setq	org-ellipsis " ▾")
+  (setq org-log-done 'time)
+  (setq org-log-into-drawer t)
+  (setq org-refile-targets
+	'(("archive.org" :maxlevel . 1)))
+  ;; Save org buffers after refiling
+  (advice-add 'org-refile :after 'org-save-all-org-buffers)
+  (setq org-archive-location "%s_archive::")
+  :bind
+  ("C-c a" . 'org-agenda))
+
+#+end_src
+
