@@ -38,6 +38,7 @@
   (setq org-hide-emphasis-markers t)
   (setq	org-ellipsis " ▾")
   (setq org-log-done 'time)
+  (setq org-image-actual-width 700)
   (setq org-refile-targets
 	'(("archive.org" :maxlevel . 1)))
   ;; Save org buffers after refiling
