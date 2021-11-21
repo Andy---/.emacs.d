@@ -11,7 +11,7 @@
  '(org-adapt-indentation nil)
  '(org-log-into-drawer t)
  '(package-selected-packages
-   '(org-bullets helpful counsel ivy-rich ivy auto-dim-other-buffers org js2-mode company-web yasnippet emmet-mode web-mode spacemacs-theme soundklaus abyss-theme ido-vertical-mode magit smex ess multi-term ebib elpy ein use-package))
+   '(spinner lsp-mode org-bullets helpful counsel ivy-rich ivy auto-dim-other-buffers org js2-mode company-web yasnippet emmet-mode web-mode spacemacs-theme soundklaus abyss-theme ido-vertical-mode magit smex ess multi-term ebib elpy ein use-package))
  '(sql-connection-alist
    '(("datawarehouse1"
       (sql-product 'postgres)

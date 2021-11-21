@@ -86,6 +86,15 @@
 (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
 (add-to-list 'org-structure-template-alist '("py" . "src python"))
 
+;;Language Server
+(use-package lsp-mode
+  :ensure t
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l"))
+;;  :config
+;;  (lsp-enable-which-key-integration t))
+
 ;;SQL
 (setq sql-indent-offset 2)
 ;;Load database connection settings
