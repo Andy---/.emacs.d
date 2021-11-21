@@ -129,6 +129,7 @@
 	;;elpy-test-pytest-runner-command '("python" "-m" "pytest"))
   (setq python-shell-interpreter "ipython"
 	python-shell-interpreter-args "-i --simple-prompt")
+;  (setq elpy-shell-starting-directory "current-directory")
   (with-eval-after-load 'python
     ;;(delete 'elpy-module-highlight-indentation elpy-modules)
     (elpy-enable)))
