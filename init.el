@@ -101,6 +101,11 @@
     (push dir lsp-file-watch-ignored)))
 ;;  (lsp-enable-which-key-integration t))
 
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+			 (require 'lsp-pyright)
+			 (lsp-deferred))))
 ;;SQL
 (setq sql-indent-offset 2)
 ;;Load database connection settings
