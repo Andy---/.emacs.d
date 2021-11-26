@@ -91,8 +91,14 @@
   :ensure t
   :commands (lsp lsp-deferred)
   :init
-  (setq lsp-keymap-prefix "C-c l"))
-;;  :config
+  (setq lsp-keymap-prefix "C-c l")
+  :config
+  (dolist (dir '(
+                 "[/\\\\]\\venv$"
+                 "[/\\\\]\\.git$"
+                 "[/\\\\]__pycache__$"
+                 ))
+    (push dir lsp-file-watch-ignored)))
 ;;  (lsp-enable-which-key-integration t))
 
 ;;SQL
