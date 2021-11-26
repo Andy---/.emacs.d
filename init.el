@@ -112,6 +112,9 @@
   :custom
   (lsp-ui-doc-position 'bottom))
 
+(use-package lsp-treemacs
+  :after lsp)
+
 ;;SQL
 (setq sql-indent-offset 2)
 ;;Load database connection settings
