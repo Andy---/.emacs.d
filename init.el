@@ -106,6 +106,12 @@
   :hook (python-mode . (lambda ()
 			 (require 'lsp-pyright)
 			 (lsp-deferred))))
+
+(use-package lsp-ui
+  :hook (lsp-mode . lsp-ui-mode)
+  :custom
+  (lsp-ui-doc-position 'bottom))
+
 ;;SQL
 (setq sql-indent-offset 2)
 ;;Load database connection settings
