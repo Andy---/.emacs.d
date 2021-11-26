@@ -480,8 +480,12 @@ new one."
 ;;company
 (use-package company
   :ensure t
+  :after lsp-mode
+  :hook (lsp-mode . company-mode)
   :config
-  (add-hook 'after-init-hook 'global-company-mode))
+  (add-hook 'after-init-hook 'global-company-mode)
+  :custom
+  (company-minimum-prefix-length 2))
 
 ;;company-web
 (use-package company-web
