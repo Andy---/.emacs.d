@@ -311,6 +311,7 @@
 
 (use-package auto-dim-other-buffers
   :ensure t
+  :if (display-graphic-p)
   :init
   (auto-dim-other-buffers-mode))
 
