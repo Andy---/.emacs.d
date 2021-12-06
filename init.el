@@ -23,6 +23,9 @@
 (use-package abyss-theme
   :ensure t)
 
+(use-package spacemacs-theme
+  :ensure t)
+
 (if (display-graphic-p)
   (load-theme 'abyss)
 (load-theme 'spacemacs-dark))

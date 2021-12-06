@@ -40,6 +40,11 @@
     :ensure t)
 #+end_src
 
+#+begin_src emacs-lisp
+  (use-package spacemacs-theme
+    :ensure t)
+#+end_src
+
 ** gui vs terminal
 Use theme according environment
 
