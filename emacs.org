@@ -42,6 +42,8 @@
 
 #+begin_src emacs-lisp
   (use-package spacemacs-theme
+    :if (not window-system)
+    :defer t
     :ensure t)
 #+end_src
 
