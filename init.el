@@ -138,6 +138,7 @@
 	;;elpy-test-pytest-runner-command '("python" "-m" "pytest"))
   (setq python-shell-interpreter "ipython"
 	python-shell-interpreter-args "-i --simple-prompt")
+  (setq elpy-eldoc-show-current-function nil)
 ;  (setq elpy-shell-starting-directory "current-directory")
   (with-eval-after-load 'python
     ;;(delete 'elpy-module-highlight-indentation elpy-modules)
@@ -198,7 +199,6 @@
 (use-package ebib
   :ensure t)
 
-(autoload 'ebib "ebib" "Ebib, ab BibTex database manager." t)
 
 ;;keyboardmacros für Auctex
 ;;mathInline
@@ -308,8 +308,8 @@
 ;;auto-dim-other-buffers
 (use-package auto-dim-other-buffers
   :ensure t
-  :init
-  (auto-dim-other-buffers-mode))
+  :config
+  (auto-dim-other-buffers-mode t))
 
 ;;Returns the most recently used term-mode buffer.
 (defun last-term-mode-buffer (list-of-buffers)
