@@ -477,9 +477,9 @@ see [[https://github.com/justbur/emacs-which-key][github]]
 #+begin_src emacs-lisp
   (use-package auto-dim-other-buffers
     :ensure t
-    :if (display-graphic-p)
-    :init
-    (auto-dim-other-buffers-mode))
+    :if window-system ;(display-graphic-p)
+    :config
+    (auto-dim-other-buffers-mode t))
 #+end_src
 
 * multi term
