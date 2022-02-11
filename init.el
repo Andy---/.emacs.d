@@ -43,6 +43,7 @@
 	;;elpy-test-pytest-runner-command '("python" "-m" "pytest"))
   (setq python-shell-interpreter "ipython"
 	python-shell-interpreter-args "-i --simple-prompt")
+  (setq elpy-eldoc-show-current-function nil)
 ;  (setq elpy-shell-starting-directory "current-directory")
   (with-eval-after-load 'python
     (elpy-enable)))
@@ -232,7 +233,12 @@
      ("p" "programmer" plain
       "\n* Personal data\n- Name: ${title}\n- Email: %^{Email}\n- Work: %^{Work}\n- Country: %^{Country}\n- Topics of interest\n> %?\n* Social\n\n* Publications\n"
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
-      :unnarrowed t)))
+      :unnarrowed t)
+     ("s" "software" plain
+      "\n\n- tags :: %?\n- sourcecode :: \n- docs :: \n- website :: \n- blog :: \n- video :: \n- hacker news :: \n\n* Description\n\n* Usage\n"
+    :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+    :unnarowed t)
+      ))
   :bind (("C-c n l" . org-roam-buffer-toggle)
 	 ("C-c n f" . org-roam-node-find)
 	 ("C-c n i" . org-roam-node-insert)
