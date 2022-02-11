@@ -7,7 +7,8 @@
   (setq package-archives
 	'(("melpa" . "http://melpa.org/packages/")
 	  ("melpa-stable" . "http://stable.melpa.org/packages/")
-	  ("gnu" . "http://elpa.gnu.org/packages/")))
+	  ("gnu" . "http://elpa.gnu.org/packages/")
+	  ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 
   (package-initialize)
 
@@ -564,7 +565,7 @@ see [[https://github.com/bbatsov/crux][github]]
     (("C-c x o" . crux-open-with)
      ("C-c x k" . crux-smart-kill-line)
      ("C-c x n" . crux-cleanup-buffer-or-region)
-     ("C-x x t" . crux-transpose-windows)
+     ("C-c x t" . crux-transpose-windows)
      ("C-c x D" . crux-delete-file-and-buffer)
      ("C-c x r" . crux-rename-file-and-buffer)
      ("C-c x d" . crux-duplicate-and-comment-current-line-or-region)

@@ -9,9 +9,10 @@
  '(inhibit-startup-screen t)
  '(js2-basic-offset 2)
  '(org-adapt-indentation nil)
+ '(org-agenda-files '("/home/andy/Orgy/me.org" "/home/andy/Orgy/limo.org"))
  '(org-log-into-drawer t)
  '(package-selected-packages
-   '(jedi rainbow-delimiters which-key crux org-roam lsp-treemacs lsp-ui lsp-pyright spinner lsp-mode org-bullets helpful counsel ivy-rich ivy auto-dim-other-buffers org js2-mode company-web yasnippet emmet-mode web-mode spacemacs-theme soundklaus abyss-theme ido-vertical-mode magit smex ess multi-term ebib elpy ein use-package))
+   '(jedi org-contrib rainbow-delimiters which-key crux org-roam lsp-treemacs lsp-ui lsp-pyright spinner lsp-mode org-bullets helpful counsel ivy-rich ivy auto-dim-other-buffers org js2-mode company-web yasnippet emmet-mode web-mode spacemacs-theme soundklaus abyss-theme ido-vertical-mode magit smex ess multi-term ebib elpy ein use-package))
  '(sql-connection-alist
    '(("datawarehouse1"
       (sql-product 'postgres)
