@@ -228,7 +228,7 @@
   (org-roam-directory "~/Orgy/Notes")
   (org-roam-capture-templates
    '(("d" "default" plain
-      "%?"
+      "\n\n- tags :: %?"
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
       :unnarrowed t)
      ("p" "programmer" plain

@@ -341,7 +341,7 @@ see [[https://www.orgroam.com/][web]], [[https://github.com/org-roam/org-roam][g
     (org-roam-directory "~/Orgy/Notes")
     (org-roam-capture-templates
      '(("d" "default" plain
-	"%?"
+	"\n\n- tags :: %?"
 	:if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
 	:unnarrowed t)
        ("p" "programmer" plain
