@@ -348,6 +348,10 @@ see [[https://www.orgroam.com/][web]], [[https://github.com/org-roam/org-roam][g
 	"\n* Personal data\n- Name: ${title}\n- Email: %^{Email}\n- Work: %^{Work}\n- Country: %^{Country}\n- Topics of interest\n> %?\n* Social\n\n* Publications\n"
 	:if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
 	:unnarrowed t)
+       ("r" "recipe" plain
+	"\n\n- tags :: %?\n- links :: \n- video :: \n\n* Ingredients\n\n* Preparation\n\n* Ideas\n"
+	:if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+	:unnarowed t)
        ("s" "software" plain
 	"\n\n- tags :: %?\n- sourcecode :: \n- docs :: \n- website :: \n- blog :: \n- video :: \n- hacker news :: \n\n* Description\n\n* Usage\n"
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
