@@ -544,21 +544,6 @@ see [[https://github.com/justbur/emacs-which-key][github]]
   (global-set-key (kbd "C-c (") 'insert-py-docstring)
 #+end_src
 
-* Choose correct mode
-
-#+begin_src emacs-lisp
-  (append (list '("\\.c$" . c-mode)
-		'("\\.tex$" . latex-mode)
-		'("\\.S$" . S-mode)
-		'("\\.s$" . S-mode)
-		'("\\.R$" . R-mode)
-		'("\\.r$" . R-mode)
-		'("\\.html$" . html-mode)
-		'("\\.emacs" . emacs-lisp-mode)
-		)
-	  auto-mode-alist)
-#+end_src
-
 * crux
 see [[https://github.com/bbatsov/crux][github]]
 
@@ -579,22 +564,8 @@ see [[https://github.com/bbatsov/crux][github]]
      ("C-c x j" . crux-top-join-line)))
 
 #+end_src
-* Functions
 
-** comint
-#+begin_src emacs-lisp
-  (eval-after-load "comint"
-    '(progn
-       (define-key comint-mode-map [up]
-	 'comint-previous-matching-input-from-input)
-       (define-key comint-mode-map [down]
-	 'comint-next-matching-input-from-input)
-       (setq comint-scroll-to-bottom-on-output 'others)
-       (setq comint-scroll-show-maximum-output t)
-       ;; somewhat extreme, almost disabling writing in *R*, *shell* buffers above promp
-       (setq comint-scroll-to-bottom-on-input 'this)
-       ))
-#+end_src
+* Functions
 
 ** swap windows
 
@@ -712,4 +683,47 @@ see [[https://github.com/bbatsov/crux][github]]
   (global-set-key (kbd "C-c e") 'find-emacs-dot-org)
 #+end_src
 
+* Global settings
+  #+begin_src emacs-lisp
+    ;; Global settings
+  #+end_src
+  
+** Choose correct mode
+#+begin_src emacs-lisp
+  ;; Choose the correct mode
+  (append (list '("\\.c$" . c-mode)
+		'("\\.tex$" . latex-mode)
+		'("\\.S$" . S-mode)
+		'("\\.s$" . S-mode)
+		'("\\.R$" . R-mode)
+		'("\\.r$" . R-mode)
+		'("\\.html$" . html-mode)
+		'("\\.emacs" . emacs-lisp-mode)
+		)
+	  auto-mode-alist)
 #+end_src
+
+** auto-revert-non-file-buffers
+   Refresh non file buffers, like dired buffer, if something
+   changed. For example in refresh dired buffer if a file was deleted
+   elsewhere.
+   #+begin_src emacs-lisp
+     ;; Automatically refresh non file buffers like dired buffer
+     (setq global-auto-revert-non-file-buffers t)
+   #+end_src
+
+** comint
+#+begin_src emacs-lisp
+  (eval-after-load "comint"
+    '(progn
+       (define-key comint-mode-map [up]
+	 'comint-previous-matching-input-from-input)
+       (define-key comint-mode-map [down]
+	 'comint-next-matching-input-from-input)
+       (setq comint-scroll-to-bottom-on-output 'others)
+       (setq comint-scroll-show-maximum-output t)
+       ;; somewhat extreme, almost disabling writing in *R*, *shell* buffers above promp
+       (setq comint-scroll-to-bottom-on-input 'this)
+       ))
+#+end_src
+

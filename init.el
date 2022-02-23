@@ -363,17 +363,6 @@
    (kmacro-lambda-form [?\' ?\' ?\' return return tab ?A ?r ?g ?u ?m ?e ?n ?t ?s ?: return tab ?\C-u ?1 ?3 ?- return return tab ?R ?e ?t ?u ?r ?n ?s ?: return tab ?\C-u ?1 ?3 ?- return return tab ?\' ?\' ?\' return ?\C-p ?\C-p ?\C-p ?\C-p ?\C-p ?\C-p ?\C-p ?\C-p tab] 0 "%d"))
 (global-set-key (kbd "C-c (") 'insert-py-docstring)
 
-(append (list '("\\.c$" . c-mode)
-	      '("\\.tex$" . latex-mode)
-	      '("\\.S$" . S-mode)
-	      '("\\.s$" . S-mode)
-	      '("\\.R$" . R-mode)
-	      '("\\.r$" . R-mode)
-	      '("\\.html$" . html-mode)
-	      '("\\.emacs" . emacs-lisp-mode)
-	      )
-	auto-mode-alist)
-
 (use-package crux
   :ensure t
   :bind
@@ -388,18 +377,6 @@
    ("C-c x I" . cux-indent-defun)
    ("C-c x i" . crux-find-user-init-file)
    ("C-c x j" . crux-top-join-line)))
-
-(eval-after-load "comint"
-  '(progn
-     (define-key comint-mode-map [up]
-       'comint-previous-matching-input-from-input)
-     (define-key comint-mode-map [down]
-       'comint-next-matching-input-from-input)
-     (setq comint-scroll-to-bottom-on-output 'others)
-     (setq comint-scroll-show-maximum-output t)
-     ;; somewhat extreme, almost disabling writing in *R*, *shell* buffers above promp
-     (setq comint-scroll-to-bottom-on-input 'this)
-     ))
 
 (defun a/swap-windows ()
   "Swap your windows."
@@ -482,3 +459,31 @@ new one."
 (global-set-key (kbd "C-c o") 'recentf-open-files)
 (global-set-key (kbd "C-c e") 'find-emacs-dot-org)
 
+;; Global settings
+
+;; Choose the correct mode
+(append (list '("\\.c$" . c-mode)
+	      '("\\.tex$" . latex-mode)
+	      '("\\.S$" . S-mode)
+	      '("\\.s$" . S-mode)
+	      '("\\.R$" . R-mode)
+	      '("\\.r$" . R-mode)
+	      '("\\.html$" . html-mode)
+	      '("\\.emacs" . emacs-lisp-mode)
+	      )
+	auto-mode-alist)
+
+;; Automatically refresh non file buffers like dired buffer
+(setq global-auto-revert-non-file-buffers t)
+
+(eval-after-load "comint"
+  '(progn
+     (define-key comint-mode-map [up]
+       'comint-previous-matching-input-from-input)
+     (define-key comint-mode-map [down]
+       'comint-next-matching-input-from-input)
+     (setq comint-scroll-to-bottom-on-output 'others)
+     (setq comint-scroll-show-maximum-output t)
+     ;; somewhat extreme, almost disabling writing in *R*, *shell* buffers above promp
+     (setq comint-scroll-to-bottom-on-input 'this)
+     ))
