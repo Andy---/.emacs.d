@@ -469,5 +469,13 @@ new one."
   (when (file-exists-p file)
     (load file)))
 
+;; Global modes
+
+(recentf-mode 1)
+
+(global-auto-revert-mode 1)
+
+;; Global keybindings
+
 (global-set-key (kbd "C-c r") 'a/rotate-windows)
 (global-set-key (kbd "C-c s") 'a/swap-windows)

@@ -681,6 +681,25 @@ see [[https://github.com/bbatsov/crux][github]]
 #+end_src
 
 * global keybindings
+* Global modes
+  #+begin_src emacs-lisp
+    ;; Global modes
+  #+end_src
+
+** recentf-mode
+   If in recentf-mode emacs remembers the last opened files. To open
+   one of those M-x recentf-open-files may be used instead of
+   find-file (C-x C-f). This will give you a list of the last opened
+   files to choose from.
+   #+begin_src emacs-lisp
+     (recentf-mode 1)
+   #+end_src
+** global-auto-revert-mode
+   Automatically refresh buffer if file was changed elsewhere.
+   #+begin_src emacs-lisp
+     (global-auto-revert-mode 1)
+   #+end_src
+
 
 #+begin_src emacs-lisp
   (global-set-key (kbd "C-c r") 'a/rotate-windows)
