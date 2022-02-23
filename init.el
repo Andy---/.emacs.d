@@ -479,3 +479,6 @@ new one."
 
 (global-set-key (kbd "C-c r") 'a/rotate-windows)
 (global-set-key (kbd "C-c s") 'a/swap-windows)
+(global-set-key (kbd "C-c o") 'recentf-open-files)
+(global-set-key (kbd "C-c e") 'find-emacs-dot-org)
+
