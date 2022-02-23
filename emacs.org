@@ -651,7 +651,15 @@ see [[https://github.com/bbatsov/crux][github]]
       (load file)))
 #+end_src
 
-* global keybindings
+** load emacs.org
+
+#+begin_src emacs-lisp
+  (defun find-emacs-dot-org ()
+    "Edit the emacs.org file, in another window."
+    (interactive)
+    (find-file-other-window (expand-file-name "~/.emacs.d/emacs.org")))
+#+end_src
+
 * Global modes
   #+begin_src emacs-lisp
     ;; Global modes

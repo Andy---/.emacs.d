@@ -446,6 +446,11 @@ new one."
   (when (file-exists-p file)
     (load file)))
 
+(defun find-emacs-dot-org ()
+  "Edit the emacs.org file, in another window."
+  (interactive)
+  (find-file-other-window (expand-file-name "~/.emacs.d/emacs.org")))
+
 ;; Global modes
 
 (recentf-mode 1)
