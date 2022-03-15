@@ -155,6 +155,7 @@
 (use-package org
     :ensure t
     :config
+    (setq org-startup-indented t)  
     (setq org-hide-emphasis-markers t)
     (setq org-ellipsis " ▾")
     (setq org-log-done 'time)
