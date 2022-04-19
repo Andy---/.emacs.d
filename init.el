@@ -1,8 +1,8 @@
 (setq package-archives
       '(("melpa" . "http://melpa.org/packages/")
-	("melpa-stable" . "http://stable.melpa.org/packages/")
-	("gnu" . "http://elpa.gnu.org/packages/")
-	("nongnu" . "https://elpa.nongnu.org/nongnu/")))
+        ("melpa-stable" . "http://stable.melpa.org/packages/")
+        ("gnu" . "http://elpa.gnu.org/packages/")
+        ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 
 (package-initialize)
 
@@ -12,6 +12,7 @@
 
 (require 'use-package)
 (setq use-package-always-ensure t) ;:ensure t for all use-packages
+(setq package-native-compile t)
 
 (add-to-list 'custom-theme-load-path "/home/andy/.emacs.d/elpa")
 (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
