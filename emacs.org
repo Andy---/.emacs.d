@@ -65,6 +65,11 @@ Use theme according environment
   (defalias 'yes-or-no-p 'y-or-n-p)
 #+end_src
 
+** warning level
+#+begin_src emacs-lisp
+  (setq warning-minimum-level :error)
+#+end_src
+
 * Python
 
 ** elpy

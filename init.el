@@ -37,6 +37,8 @@
 ;; Ask user a "y or n" question.
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+(setq warning-minimum-level :error)
+
 (use-package elpy
   :ensure t
   :init
